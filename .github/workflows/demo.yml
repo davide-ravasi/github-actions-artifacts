@@ -28,7 +28,7 @@ jobs:
       - name: Build website
         run: npm run build
       - name: check asset javascript file
-        run: find dist -type f -name "*.js" echo "file-javascript={}" >> $GITHUB_OUTPUTS
+        run: find dist -type f -name "*.js" echo "file-javascript={}" >> $GITHUB_OUTPUTS ";"
       - name: Upload artifact
         uses: actions/upload-artifact@v4
         with:
