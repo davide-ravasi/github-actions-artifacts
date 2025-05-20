@@ -18,7 +18,7 @@ jobs:
   build:
     needs: test
     runs-on: ubuntu-latest
-    output:
+    outputs:
       file-javascript:
     steps:
       - name: Get code
