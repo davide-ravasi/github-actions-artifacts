@@ -19,7 +19,7 @@ jobs:
     needs: test
     runs-on: ubuntu-latest
     outputs:
-      file-javascript:
+      file-javascript: ${{steps.check-assets-javascript.outputs.file-javascript}}
     steps:
       - name: Get code
         uses: actions/checkout@v3
@@ -28,6 +28,7 @@ jobs:
       - name: Build website
         run: npm run build
       - name: check asset javascript file
+        id: check-assets-javascript
         run: find dist/assets/*.js -type f -execdir echo "file-javascript={}" >> $GITHUB_OUTPUT ";"
       - name: Upload artifact
         uses: actions/upload-artifact@v4
