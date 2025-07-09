@@ -1,6 +1,6 @@
 name: "Get & Cache dependencies"
 description: "Get code and cache dependencies for subsequent jobs"
-input:
+inputs:
   caching:
     description: "Enable caching of dependencies"
     required: false
