@@ -25,9 +25,6 @@ jobs:
       - name: Load and cache dependencies
         id: cache
         uses: ./.github/actions/cached-deps
-      - name: Used cache
-        id: cache-check
-        run: echo "Cache used: ${{ outputs.used-cache }}"
       - name: Test code
         id: run-tests
         run: npm run test
