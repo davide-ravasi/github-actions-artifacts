@@ -17,15 +17,17 @@ jobs:
         run: npm run lint
   test:
     runs-on: ubuntu-latest
+    output:
+      used-cache: ${{ steps.cache.outputs.used-cache }}
     steps:
       - name: Get code
-        id: cache
         uses: actions/checkout@v4
       - name: Load and cache dependencies
+        id: cache
         uses: ./.github/actions/cached-deps
-      - name: USed cache
+      - name: Used cache
         id: cache-check
-        run: echo "Cache used: ${{ steps.cache.outputs.used-cache }}"
+        run: echo "Cache used: ${{ outputs.used-cache }}"
       - name: Test code
         id: run-tests
         run: npm run test
