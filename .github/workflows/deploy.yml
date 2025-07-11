@@ -39,7 +39,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: check cache
-        run: echo "Cache used: ${{ needs.test.outputs.used-cache }}"
+        run: echo "Cache used: '${{ needs.test.outputs.used-cache }}'"
   build:
     needs: test
     runs-on: ubuntu-latest
