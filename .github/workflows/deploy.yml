@@ -19,9 +19,13 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Get code
+        id: cache
         uses: actions/checkout@v4
       - name: Load and cache dependencies
         uses: ./.github/actions/cached-deps
+      - name: USed cache
+        id: cache-check
+        run: echo "Cache used: ${{ steps.cache.outputs.used-cache }}"
       - name: Test code
         id: run-tests
         run: npm run test
