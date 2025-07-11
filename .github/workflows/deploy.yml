@@ -17,14 +17,14 @@ jobs:
         run: npm run lint
   test:
     runs-on: ubuntu-latest
-    outputs:
-      used-cache: ${{ steps.cache.outputs.used-cache }}
     steps:
       - name: Get code
         uses: actions/checkout@v4
       - name: Load and cache dependencies
         id: cache
         uses: ./.github/actions/cached-deps
+      - name: Used cache
+        run: echo "Cache used: ${{ steps.cache.outputs.used-cache }}"
       - name: Test code
         id: run-tests
         run: npm run test
@@ -34,14 +34,8 @@ jobs:
         with:
           name: test-report
           path: test.json
-  check-cache:
-    needs: test
-    runs-on: ubuntu-latest
-    steps:
-      - name: check cache
-        run: echo "Cache used: $used-cache"
   build:
-    needs: test
+    needs: check-cache
     runs-on: ubuntu-latest
     steps:
       - name: Get code
