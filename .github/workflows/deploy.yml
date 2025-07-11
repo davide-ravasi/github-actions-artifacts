@@ -17,7 +17,7 @@ jobs:
         run: npm run lint
   test:
     runs-on: ubuntu-latest
-    output:
+    outputs:
       used-cache: ${{ steps.cache.outputs.used-cache }}
     steps:
       - name: Get code
