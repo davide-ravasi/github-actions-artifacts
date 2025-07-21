@@ -1,10 +1,10 @@
-import * as core from "@actions/core";
-import * as github from "@actions/github";
-import * as exec from "@actions/exec";
+const core = require("@actions/core");
+const exec = require("@actions/exec");
+const github = require("@actions/github");
 
 function run() {
   try {
-    core.info("Starting the deployment process...");
+    core.notice("Starting the deployment process...");
   } catch (error) {
     core.error(`Error: ${error}`);
   }
