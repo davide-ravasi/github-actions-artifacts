@@ -71,4 +71,8 @@ jobs:
       - name: Get code
         uses: actions/checkout@v4
       - name: Get infos
+        inputs:
+          bucket-name: "bucketName test"
+          bucket-region: "us-east-2"
+          dist-folder: "./dist"
         uses: ./.github/actions/deploy-s3-javascript
