@@ -15,8 +15,6 @@ function run() {
     core.info(`Deploying to S3 bucket: ${bucketName}`);
     core.info(`Bucket region: ${bucketRegion}`);
     core.info(`Distribution folder: ${distFolder}`);
-    core.info(`Access key ID: ${accessKeyId}`);
-    core.info(`Secret access key: ${secretAccessKey}`);
     core.notice("Starting the deployment process...");
 
     // upload files to S3
