@@ -11,6 +11,12 @@ inputs:
   dist-folder:
     description: "The folder containing the built website files"
     required: true
+  access-key-id:
+    description: "The AWS access key ID"
+    required: true
+  secret-access-key:
+    description: "The AWS secret access key"
+    required: true
 runs:
   using: "node20"
   main: "main.js"
