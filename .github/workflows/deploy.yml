@@ -66,7 +66,7 @@ jobs:
       - name: Deploy site
         uses: ./.github/actions/deploy-s3-javascript
         with:
-          bucket-name: "my-bucket-name"
+          bucket: "my-bucket-name"
           bucket-region: "us-east-1"
           dist-folder: "./dist"
           access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
