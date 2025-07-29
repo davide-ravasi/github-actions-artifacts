@@ -11,12 +11,15 @@ function run() {
     required: true,
   });
 
+  const websiteUrl =
+    "https://" + bucketName + ".s3." + bucketRegion + ".amazonaws.com";
+
   try {
     core.info(`Deploying to S3 bucket: ${bucketName}`);
     core.info(`Bucket region: ${bucketRegion}`);
     core.info(`Distribution folder: ${distFolder}`);
     core.notice("Starting the deployment process...");
-
+    core.setOutput("website-url", websiteUrl);
     // upload files to S3
     // we can use the AWS CLI or SDK to upload files
     // because is present in the GitHub Actions environment

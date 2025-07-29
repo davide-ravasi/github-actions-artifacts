@@ -64,6 +64,7 @@ jobs:
       - name: Output contents
         run: ls
       - name: Deploy site
+        id: deploy
         uses: ./.github/actions/deploy-s3-javascript
         with:
           bucket: "my-bucket-name"
@@ -71,3 +72,7 @@ jobs:
           dist-folder: "./dist"
           access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
           secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+      - name: Output information
+        run: |
+          echo "Website URL: ${{ steps.deploy.outputs.website-url }}"
+          echo "Deployment completed successfully."

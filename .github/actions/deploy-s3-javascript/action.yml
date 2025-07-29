@@ -17,6 +17,9 @@ inputs:
   secret-access-key:
     description: "The AWS secret access key"
     required: true
+outputs:
+  website-url:
+    description: "The URL of the deployed website"
 runs:
   using: "node20"
   main: "main.js"
